@@ -15,30 +15,31 @@ public class CharacterMovement : MonoBehaviour
     
     private void Update()
     {
-        
 
         if (GameManager.Instance.isLevelStarted)
         {
-            //Idle animasyonu sonlandýðýnda karakter yönünü düzeltiyor.
-            if(!_playerDirectionForward)
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            _playerDirectionForward = true;
+            Move();        
+ 
 
-            animator.SetBool("IsLevelStarted", true);
-
-            PlayerMove();
-
-            
         }
         
     }
 
+    void Move()
+    {
+        //Idle animasyonu sonlandýðýnda karakter yönünü düzeltiyor.
+        if (!_playerDirectionForward)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        _playerDirectionForward = true;
+
+        PlayerMove();
+    }
     private void PlayerMove()
     {
-        
-        transform.position += Vector3.forward * _speed * Time.deltaTime;
+            animator.SetFloat("Speed", 1);
+            transform.position += Vector3.forward * _speed * Time.deltaTime;   
     }
 
 }
