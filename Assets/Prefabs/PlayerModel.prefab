@@ -81,7 +81,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1145112200569820138, guid: d087a14a8a5061b4eb0a89d3a8a643d1, type: 3}
+  - {fileID: 2100000, guid: 18ad14c524f1c124682f339e482b55cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -526,7 +526,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1145112200569820138, guid: d087a14a8a5061b4eb0a89d3a8a643d1, type: 3}
+  - {fileID: 2100000, guid: 18ad14c524f1c124682f339e482b55cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -965,7 +965,7 @@ Transform:
   m_GameObject: {fileID: 8057402744229034340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 2939205117112042314}
   - {fileID: 6653119561662638077}
@@ -1005,7 +1005,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1918519601692661683
 MonoBehaviour:
@@ -1019,7 +1019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc495e7b0e28c14dbc91ba6bc0f2d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 3
+  animator: {fileID: 5481786704424881800}
 --- !u!136 &1284592604
 CapsuleCollider:
   m_ObjectHideFlags: 0
