@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
         isLevelStarted = true;
         Level_UI.SetActive(true);
         Start_UI.SetActive(false);
-
     }
 
     public void PauseForUI() => isLevelStarted = false;
