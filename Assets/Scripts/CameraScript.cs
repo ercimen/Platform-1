@@ -9,10 +9,49 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Vector3 _desiredPosition;
     [SerializeField] private float _smoothed;
 
+    [SerializeField] private bool _isFollowCam;
+    [SerializeField] private bool _isLastPose;
+
+    
+
+
     private void LateUpdate()
+    {
+        if (_isFollowCam)
+        {
+            FollowCam();
+        }
+        if (_isLastPose)
+        {
+            LastPose();
+        }
+        
+    }
+    
+    void FollowCam()
     {
         _desiredPosition = _player.transform.position + _cameraOffset;
         transform.position = Vector3.Lerp(transform.position, _desiredPosition, _smoothed);
-        //transform.LookAt(_player.transform, Vector3.left);
+        Debug.Log("followcam");
+    }
+
+    void LastPose()
+    {
+        transform.LookAt(_player.transform, Vector3.left);
+        Debug.Log("lastpose");
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.collider.tag == "Platform")
+        {
+            _isFollowCam = true;
+            
+        }
+        if(collision.collider.tag == "Finish")
+        {
+            _isFollowCam = false;
+            _isLastPose = true;
+        }
     }
 }

@@ -4,42 +4,24 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] 
-    private float _speed;
-    private Rigidbody _rbPlayer;
-
+    [SerializeField]  private float _speed;
     public Animator animator;
 
-    private bool _playerDirectionForward;
 
-    
-    private void Update()
+    void OnCollisionStay(Collision collision)
     {
-
-        if (GameManager.Instance.isLevelStarted)
+        
+        if(collision.collider.tag == ("Platform")&& GameManager.Instance.isLevelStarted)
         {
-            Move();        
- 
-
+            animator.SetFloat("Speed", 1);
+            transform.position += _speed * Vector3.forward * Time.deltaTime;
         }
         
-    }
-
-    void Move()
-    {
-        //Idle animasyonu sonlandýðýnda karakter yönünü düzeltiyor.
-        if (!_playerDirectionForward)
+        if(collision.collider.tag == "Finish"&& GameManager.Instance.isLevelStarted)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+             animator.SetBool("IsLevelFinish", true);
         }
-        _playerDirectionForward = true;
-
-        PlayerMove();
     }
-    private void PlayerMove()
-    {
-            animator.SetFloat("Speed", 1);
-            transform.position += Vector3.forward * _speed * Time.deltaTime;   
-    }
-
 }
+    
+

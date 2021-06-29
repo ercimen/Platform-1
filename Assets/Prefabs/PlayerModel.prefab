@@ -947,8 +947,8 @@ GameObject:
   - component: {fileID: 7249235981272294366}
   - component: {fileID: 5481786704424881800}
   - component: {fileID: 1284592602}
-  - component: {fileID: 1918519601692661683}
   - component: {fileID: 1284592604}
+  - component: {fileID: 6914026170382058782}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -985,7 +985,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cfc2073e05246b841a2db4febeabf346, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1005,22 +1005,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 114
   m_CollisionDetection: 0
---- !u!114 &1918519601692661683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8057402744229034340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc495e7b0e28c14dbc91ba6bc0f2d67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 3
-  animator: {fileID: 5481786704424881800}
 --- !u!136 &1284592604
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1035,6 +1021,20 @@ CapsuleCollider:
   m_Height: 0.97604686
   m_Direction: 1
   m_Center: {x: -0.0048598647, y: 0.46752283, z: -0.0029492676}
+--- !u!114 &6914026170382058782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057402744229034340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc495e7b0e28c14dbc91ba6bc0f2d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+  animator: {fileID: 5481786704424881800}
 --- !u!1 &8180152711580824536
 GameObject:
   m_ObjectHideFlags: 0
