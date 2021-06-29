@@ -9,19 +9,18 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Vector3 _desiredPosition;
     [SerializeField] private float _smoothed;
 
-    [SerializeField] private bool _isFollowCam;
-    [SerializeField] private bool _isLastPose;
+    [SerializeField] private CharacterMovement _characterMovement;
 
     
 
 
     private void LateUpdate()
     {
-        if (_isFollowCam)
+        if (_characterMovement._isFollowCam)
         {
             FollowCam();
         }
-        if (_isLastPose)
+        if (_characterMovement._isLastPose)
         {
             LastPose();
         }
@@ -41,17 +40,5 @@ public class CameraScript : MonoBehaviour
         Debug.Log("lastpose");
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.collider.tag == "Platform")
-        {
-            _isFollowCam = true;
-            
-        }
-        if(collision.collider.tag == "Finish")
-        {
-            _isFollowCam = false;
-            _isLastPose = true;
-        }
-    }
+    
 }
