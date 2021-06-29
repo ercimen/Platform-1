@@ -38,14 +38,40 @@ public class CharacterMovement : MonoBehaviour
         {
              animator.SetBool("IsLevelFinish", true);
 
+<<<<<<< Updated upstream
             //Use for camera script.
             _isFollowCam = false;
             _isLastPose = true;
+=======
+            
+>>>>>>> Stashed changes
 
             _isLevelEnd = true;
         }
     }
+<<<<<<< Updated upstream
     IEnumerator ParticleSystemDetection()
+=======
+    private void OnCollisionStay(Collision collision)
+    {
+        
+
+        if(collision.collider.tag == ("Ground"))
+        {
+            if (GameManager.Instance.isLevelStarted)
+            {
+                PlayerMove();
+            }
+        }
+        if(collision.collider.tag == ("Finish"))
+        {
+            animator.SetBool("IsLevelFinish", true);
+        }
+    }
+  
+
+    private void PlayerMove()
+>>>>>>> Stashed changes
     {
         yield return new WaitForSeconds(7.5f);
         _confettiRain.Play();

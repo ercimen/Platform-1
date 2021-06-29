@@ -1,11 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 44ee99d2138b3b24f8c2a110103c83a8
+=======
+guid: bd5329f959fa0ed41a15c884e85bc842
+>>>>>>> Stashed changes
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
+<<<<<<< Updated upstream
     second: Big Jump
+=======
+    second: mixamo.com
+>>>>>>> Stashed changes
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -33,6 +41,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
+<<<<<<< Updated upstream
     clipAnimations:
     - serializedVersion: 16
       name: Big Jump
@@ -63,6 +72,9 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+=======
+    clipAnimations: []
+>>>>>>> Stashed changes
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -108,6 +120,7 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
+<<<<<<< Updated upstream
     human:
     - boneName: mixamorig:Hips
       humanName: Hips
@@ -416,6 +429,10 @@ ModelImporter:
       position: {x: -0, y: 0.019019, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+=======
+    human: []
+    skeleton: []
+>>>>>>> Stashed changes
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

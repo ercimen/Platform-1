@@ -33,6 +33,7 @@ public class CameraScript : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, _desiredPosition, _smoothed);
         Debug.Log("followcam");
     }
+<<<<<<< Updated upstream
 
     void LastPose()
     {
@@ -41,4 +42,14 @@ public class CameraScript : MonoBehaviour
     }
 
     
+=======
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == ("Finish"))
+        {
+
+        }
+
+    }
+>>>>>>> Stashed changes
 }
