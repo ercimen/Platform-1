@@ -9,47 +9,32 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Vector3 _desiredPosition;
     [SerializeField] private float _smoothed;
 
-    [SerializeField] private CharacterMovement _characterMovement;
+    [SerializeField] private bool _isFollowCam;
+    [SerializeField] private bool _isLastPose;
 
-    
-
+    public CharacterMovement _characterMovement;
 
     private void LateUpdate()
     {
-        if (_characterMovement._isFollowCam)
+        if (_isFollowCam)
         {
             FollowCam();
         }
-        if (_characterMovement._isLastPose)
+        if (_isLastPose)
         {
             LastPose();
         }
         
-    }
-    
+    }  
     void FollowCam()
     {
         _desiredPosition = _player.transform.position + _cameraOffset;
         transform.position = Vector3.Lerp(transform.position, _desiredPosition, _smoothed);
         Debug.Log("followcam");
     }
-<<<<<<< Updated upstream
-
     void LastPose()
     {
         transform.LookAt(_player.transform, Vector3.left);
         Debug.Log("lastpose");
-    }
-
-    
-=======
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.tag == ("Finish"))
-        {
-
-        }
-
-    }
->>>>>>> Stashed changes
+    } 
 }
