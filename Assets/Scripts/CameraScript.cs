@@ -16,7 +16,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Transform _initialCam;
     [SerializeField] private Transform _cameraPivot;
 
-    public float _rotateY,_rotateX,_rotateSmooth;
+    public float _rotateY,_rotateX,_rotateSpeed,_totalRotate;
 
 
     private void LateUpdate()
@@ -50,13 +50,13 @@ public class CameraScript : MonoBehaviour
     void LastPose()
     {
         
-        if(_rotateY < 190)
+        if(_rotateY < _totalRotate)
         {
-        _rotateY += .55f;
+        _rotateY += _rotateSpeed;
         
         transform.LookAt(_cameraPivot);
         Quaternion QT = Quaternion.Euler(_rotateX, _rotateY, 0);
-       _cameraPivot.rotation = Quaternion.Lerp(_cameraPivot.rotation, QT, Time.deltaTime * _rotateSmooth);
+       _cameraPivot.rotation = Quaternion.Lerp(_cameraPivot.rotation, QT, Time.deltaTime * .5f);
         
         }
         
