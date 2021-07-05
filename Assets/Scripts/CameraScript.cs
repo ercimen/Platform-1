@@ -5,55 +5,61 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _playerModel;
+
     [SerializeField] private Vector3 _cameraOffset;
     [SerializeField] private Vector3 _desiredPosition;
     [SerializeField] private float _smoothed;
 
-    [SerializeField] private bool _isFollowCam;
-    [SerializeField] private bool _isLastPose;
-
     public CharacterMovement _characterMovement;
 
     [SerializeField] private Transform _initialCam;
+    [SerializeField] private Transform _cameraPivot;
 
-    private void Start()
-    {
-        
-    }
+    public float _rotateY,_rotateX,_rotateSmooth;
+
+
     private void LateUpdate()
     {
-        if(_characterMovement._isFollowCam && GameManager.Instance.isLevelStarted==false)
+        if(CharacterMovement.instance._isFollowCam && GameManager.Instance.isLevelStarted==false)
         {
             InitialCam();
         }
-        if (_characterMovement. _isFollowCam&& GameManager.Instance.isLevelStarted)
+        if (CharacterMovement.instance._isFollowCam && GameManager.Instance.isLevelStarted)
         {
             FollowCam();
         }
-        if (_characterMovement. _isLastPose&& GameManager.Instance.isLevelStarted)
+        if (CharacterMovement.instance._isLastPose && GameManager.Instance.isLevelStarted)
         {
             LastPose();
         }
         
-    }  
+    }
 
-
+    void InitialCam()
+    {
+       transform.position = _initialCam.position;
+       
+    }
     void FollowCam()
     {
-        _desiredPosition = _player.transform.position + _cameraOffset;
+        _desiredPosition = new Vector3(0.78f, 10.06f, _player. transform.position.z) + _cameraOffset;
         transform.position = Vector3.Lerp(transform.position, _desiredPosition, _smoothed);
-        transform.LookAt(_player.transform);
-        Debug.Log("followcam");
+        transform.eulerAngles = new Vector3(28.4f, -47.2f, 0);
     }
     void LastPose()
     {
-        transform.LookAt(_player.transform, Vector3.left);
-        Debug.Log("lastpose");
+        
+        if(_rotateY < 190)
+        {
+        _rotateY += .55f;
+        
+        transform.LookAt(_cameraPivot);
+        Quaternion QT = Quaternion.Euler(_rotateX, _rotateY, 0);
+       _cameraPivot.rotation = Quaternion.Lerp(_cameraPivot.rotation, QT, Time.deltaTime * _rotateSmooth);
+        
+        }
+        
+
     } 
-    void InitialCam()
-    {
-        Debug.Log("initial cam00");
-        transform.position = _initialCam.position;
-        transform.LookAt(_player.transform);
-    }
 }
