@@ -1923,8 +1923,8 @@ MonoBehaviour:
   _cameraPivot: {fileID: 1570053986}
   _rotateY: 0
   _rotateX: 0
-  _rotateSpeed: 0.5
-  _totalRotate: 190
+  _rotateSpeed: 0.32
+  _totalRotate: 200
 --- !u!1 &1133469399
 GameObject:
   m_ObjectHideFlags: 0

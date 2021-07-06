@@ -29,15 +29,11 @@ public class CameraScript : MonoBehaviour
         {
             FollowCam();
         }
-        
-        
-    }
-    private void FixedUpdate()
-    {
         if (CharacterMovement.instance._isLastPose && GameManager.Instance.isLevelStarted)
         {
             LastPose();
         }
+        
     }
 
     void InitialCam()
