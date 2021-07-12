@@ -19,7 +19,7 @@ public class CameraScript : MonoBehaviour
     public float _rotateY,_rotateX,_rotateSpeed,_totalRotate;
 
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if(CharacterMovement.instance._isFollowCam && GameManager.Instance.isLevelStarted==false)
         {
