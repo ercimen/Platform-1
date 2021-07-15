@@ -36,11 +36,11 @@ public class CubeObstackle : MonoBehaviour
     {
         for(int i = 0; i < 25; i++)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetMouseButton(0))
             {
                 //if (_cubeTransform[i].position.y < _cubeTransformTemp.position.y + _randomRangeNumber[i]) stagleniyor
 
-                if (_cubeTransform[i].position.y <  _randomRangeNumber[i] + _cubeTransformTemp)
+                if (_cubeTransform[i].position.y <  _randomRangeNumber[i] + _cubeTransformTemp )
                 {
                     _cubeRigidBody[i].velocity = Vector3.up * _speed*Time.deltaTime;
                     Debug.Log(_cubeTransformTemp);

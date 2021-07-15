@@ -37,7 +37,7 @@ public class StairObstackle : MonoBehaviour
     {
         for(int i = 0; i < 10; i++)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetMouseButton(0))
             {
                 if(_stairTransform[i].position.y < _riser[i]+_stairTransformTemp.position.y)
                 {

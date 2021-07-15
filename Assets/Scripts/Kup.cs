@@ -16,17 +16,16 @@ public class Kup : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            ters = true;
             rb.velocity = Vector3.up * speed;
+
         }
 
-        if (Input.GetKey(KeyCode.E))
+        else
         {
-            ters = false;
             rb.velocity = Vector3.up * -speed;
         }
     }
-
+    
 }
