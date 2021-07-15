@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject Lose_UI;
     [SerializeField] GameObject NextLevel_UI;
 
+    [Header("---DISTANCE BAR---")]
+    [SerializeField] Transform Player;
+    [SerializeField] Transform Finish;
+    [SerializeField] Slider FillBar;
+    float PlayerZ, FinishZ,firstDistance;
+
     [Header("---OTHERS---")]
     [SerializeField] int Level;
     [SerializeField] Text ScoreText,LevelText;
@@ -39,10 +45,19 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         isLevelStarted = false;
+
+    }
+
+    private void Update()
+    {
+        DistanceBar();
     }
     private void Start()
     {
-        
+
+        PlayerZ = Player.position.z;
+        FinishZ = Finish.position.z;
+        firstDistance = FinishZ - PlayerZ;
     }
 
     public void StartGame()
@@ -65,8 +80,21 @@ public class GameManager : MonoBehaviour
     {
         Level_UI.SetActive(false);
         NextLevel_UI.SetActive(true);
-        PauseForUI();
+       // PauseForUI();
     }
    
+    void DistanceBar()
+    {
+
+        PlayerZ = Player.position.z;
+
+
+        FillBar.value = 1 - ((FinishZ - PlayerZ) / firstDistance);
+
+        if (FillBar.value ==1)
+        {
+            NextLevel();
+        }
+    }
  
 }
