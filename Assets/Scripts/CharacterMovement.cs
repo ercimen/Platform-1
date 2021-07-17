@@ -54,6 +54,11 @@ public class CharacterMovement : MonoBehaviour
 
             _isLevelEnd = true;
         }
+        if (collision.collider.tag == "Border")
+        {
+            GameManager.Instance.GameOver();
+        }
+
     }
 
     IEnumerator ParticleSystemDetection()
@@ -61,6 +66,7 @@ public class CharacterMovement : MonoBehaviour
        
         _confettiRain.transform.position = this.transform.GetChild(0).gameObject.transform.position + new Vector3(_confettiRainDistance,0,0);
         yield return new WaitForSeconds(7.5f);
+        GameManager.Instance.NextLevelPanel();
         _confettiRain.Play();
     }
 }
