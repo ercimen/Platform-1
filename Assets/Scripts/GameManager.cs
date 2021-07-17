@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     {
         Level_UI.SetActive(false);
         Lose_UI.SetActive(true);
-        PauseForUI();
+       // PauseForUI();
     }
     public void NextLevel()
     {
