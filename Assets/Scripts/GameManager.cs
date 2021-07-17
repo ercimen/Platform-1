@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
         PlayerZ = Player.position.z;
         FinishZ = Finish.position.z;
         firstDistance = FinishZ - PlayerZ;
@@ -76,24 +75,31 @@ public class GameManager : MonoBehaviour
         Lose_UI.SetActive(true);
         PauseForUI();
     }
-    public void NextLevel()
+    public void NextLevelPanel()
     {
         Level_UI.SetActive(false);
         NextLevel_UI.SetActive(true);
-       // PauseForUI();
+        // PauseForUI();
     }
-   
+    public void NextLevetbutton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     void DistanceBar()
     {
 
         PlayerZ = Player.position.z;
 
-
         FillBar.value = 1 - ((FinishZ - PlayerZ) / firstDistance);
 
         if (FillBar.value ==1)
         {
-            NextLevel();
+            NextLevelPanel();
         }
     }
  
