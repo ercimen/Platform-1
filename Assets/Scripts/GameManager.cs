@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
         PlayerZ = Player.position.z;
         FinishZ = Finish.position.z;
         firstDistance = FinishZ - PlayerZ;
+
+        LevelText.text = (SceneManager.GetActiveScene().buildIndex+1).ToString();
+
     }
 
     public void StartGame()
